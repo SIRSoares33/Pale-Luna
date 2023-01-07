@@ -1,6 +1,8 @@
 from functions import Configs
 from colorama import Fore
 from re import search
+import time
+import os
 
 class Phase_one:
     __slots__ = ("question", "dict_class", "list_objects", "inventory") #Armazenando os atributos da classe na memória
@@ -22,15 +24,29 @@ class Phase_one:
                 for count in range(len(self.question[phase])): #Passando pela lista self.question
                     self.dict_class["Functions"][0].animation(str(self.question[phase][count])) #Usando a função de animação nas perguntas armazenadas em self.question
 
-            command = str(input("\n==> ")).lower()
+            x = 0 
+            while x != 3:
+                
+                command = str(input("\n==> ")).lower()
 
-            if command in self.list_objects[phase]: #Verificando se o usuario digitou algo que esta dentro da lista de objetos
-                self.inventory["Items"] = command #Armazenando item que o usuario pegou, dentro do inventario dele
-                self.dict_class["Functions"][0].animation("Você Pegou") #Função de animação
-                print("\n")
+                if command in self.list_objects[phase]: #Verificando se o usuario digitou algo que esta dentro da lista de objetos
+                    x += 1
+                    self.list_objects[phase].remove(command)
+                    self.inventory["Items"] = command #Armazenando item que o usuario pegou, dentro do inventario dele
+                    self.dict_class["Functions"][0].animation("Pegou.") #Função de animação
+                    print("\n")
+                
+                else:
+                    quit()
+            
+            open_door = str(input("\n==> ")).lower()
+            if open_door == "abrir porta":
+                self.dict_class["Functions"][0].animation("Abriu.")
+                time.sleep(3)
+                os.system("cls")
+
         except KeyboardInterrupt:
             print(f"{Fore.RED}Programa Interrompido{Fore.RESET}")
 
 obj_class = Phase_one()
 obj_class.validate_room("1")
-obj_class.validate_room("2")
