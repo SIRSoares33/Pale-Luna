@@ -1,26 +1,26 @@
+from termcolor import colored
+from colorama import Fore, init
 from time import sleep
 from sys import stdout
+from re import search
 
 class Configs:
-    __slots__ = ("colors")
+    # __slots__ = ("colors")
     
     def __init__(self) -> None:
-        self.colors = {"red": "\033[01;31m",
-                        "white": "\033[1;37m",
-                        "endcolor": "\033[0m"
-                        }
+        pass
 
+    init(convert=True)
     def animation(self, var: str) -> str:
-        if var == "You Lost":
-            color = self.colors["red"]
+        if var == "Você Perdeu":
+            color = Fore.RED
+        elif search("Pegou", var):
+            color = Fore.GREEN
         else:
-            color = self.colors["white"]
+            color = Fore.WHITE
 
         list_var = [broken for broken in var]
         for n in list_var:
-            stdout.write(f"{color}{n}{self.colors['endcolor']}")
+            stdout.write(colored(f"{color}{n}{Fore.RESET}"))
             stdout.flush()
             sleep(.1)
-
-obj_class = Configs()
-obj_class.animation("You Lost")
