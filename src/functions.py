@@ -11,7 +11,7 @@ class Configs:
         pass
 
     init(convert=True)
-    def animation(self, var: str) -> str:
+    def animation(self, var: str) -> None:
         if var == "Você Perdeu":
             color = Fore.RED
         elif search("Pegou", var):
