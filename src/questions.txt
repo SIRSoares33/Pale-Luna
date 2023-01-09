@@ -1,2 +1,9 @@
 [1] - Você está em uma sala, a luz da Lua ilumina ela por completo.
-[1] - No canto da sala tem OURO, PÁ ,CORDA e uma PORTA que o leva em direção ao leste.
+[1] - No canto da sala tem OURO, PÁ, CORDA e uma PORTA que o leva em direção ao leste.
+
+[2] - Você encara a floresta, a Lua está rindo para Você...
+[2] - O leste não é o único lugar que você deve ir.
+
+[3] - A floresta não fica tão escura. A luz da Lua penetra por entre as árvores.
+[3] - Esconda sua recompensa.
+

@@ -16,6 +16,11 @@ class Configs:
             color = Fore.RED
         elif search("Pegou", var):
             color = Fore.GREEN
+        elif search("Abriu.", var):
+            color = Fore.GREEN
+        elif search("Feito.", var):
+            color = Fore.GREEN
+
         else:
             color = Fore.WHITE
 
@@ -24,3 +29,4 @@ class Configs:
             stdout.write(colored(f"{color}{n}{Fore.RESET}"))
             stdout.flush()
             sleep(.1)
+
